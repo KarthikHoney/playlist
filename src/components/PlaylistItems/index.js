@@ -1,24 +1,34 @@
-import {MdDelete} from 'react-icons/md'
+import {AiOutlineDelete} from 'react-icons/ai'
+
 import './index.css'
 
 const PlaylistItems = props => {
-  const {playlistDetails} = props
-  const {imageUrl, name, genre, duration} = playlistDetails
+  const {playlistDetails, onClickDelete} = props
+  const {id, imageUrl, name, genre, duration} = playlistDetails
+
+  const onDeleteIconClick = () => {
+    onClickDelete(id)
+  }
 
   return (
-    <li className="listItemContainer">
-      <div className="containerElements">
-        <img src={imageUrl} alt={name} className="playlistPic" />
-        <div className="playlistName">
-          <h1 className="name">{name}</h1>
-          <p className="genre">{genre}</p>
+    <div>
+      <li className="listItemContainer">
+        <div className="containerElements">
+          <img src={imageUrl} alt={name} className="playlistPic" />
+          <div className="playlistName">
+            <h1 className="name">{name}</h1>
+            <p className="genre">{genre}</p>
+          </div>
         </div>
-      </div>
-      <div className="durationContainer">
-        <p className="duration">{duration}</p>
-        <MdDelete className="icon" />
-      </div>
-    </li>
+        <div className="durationContainer">
+          <p className="duration">{duration}</p>
+          {/* eslint-disable-next-line */}
+          <button type="button" onClick={onDeleteIconClick}>
+            <AiOutlineDelete size={25} />
+          </button>
+        </div>
+      </li>
+    </div>
   )
 }
 export default PlaylistItems

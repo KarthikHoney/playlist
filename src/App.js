@@ -86,18 +86,29 @@ const initialTracksList = [
   },
 ]
 
-// Replace your code here
-
 class App extends Component {
-  state = {searchInput: ''}
+  state = {searchInput: '', playlist: initialTracksList}
 
   onChangingInput = event => {
     this.setState({searchInput: event.target.value})
   }
 
-  filteredItem = searchInput => {
-    const filter = initialTracksList.filter(
-      eachFilter => eachFilter.id === searchInput,
+  onClickDelete = id => {
+    const {playlist} = this.state
+    const updateList = playlist.filter(eachDel => eachDel.id !== id)
+    this.setState({playlist: updateList})
+  }
+
+  renderFailure = () => (
+    <div>
+      <h1>No songs found</h1>
+    </div>
+  )
+
+  filteredItem = () => {
+    const {searchInput, playlist} = this.state
+    const filter = playlist.filter(eachFilter =>
+      eachFilter.name.toLowerCase().includes(searchInput.toLowerCase()),
     )
     return filter
   }
@@ -121,11 +132,19 @@ class App extends Component {
             <p className="paraName">Singer</p>
           </div>
         </div>
-        <ul>
-          {filters.map(eachFill => (
-            <PlaylistItems key={eachFill.id} playlistDetails={eachFill} />
-          ))}
-        </ul>
+        {filters.length === 0 ? (
+          this.renderFailure()
+        ) : (
+          <ul>
+            {filters.map(eachFill => (
+              <PlaylistItems
+                key={eachFill.id}
+                playlistDetails={eachFill}
+                onClickDelete={this.onClickDelete}
+              />
+            ))}
+          </ul>
+        )}
       </div>
     )
   }
