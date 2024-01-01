@@ -1,0 +1,53 @@
+.playlistPic {
+  height: 100px;
+  width: 100px;
+  padding-right: 8px;
+  border-radius: 7px;
+}
+.playlistName {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.name {
+  color: white;
+  font-family: 'roboto';
+  font-size: large;
+}
+.genre {
+  color: blue;
+  font-family: 'roboto';
+  font-size: medium;
+}
+.duration {
+  color: white;
+  font-family: 'roboto';
+  font-size: medium;
+  padding-right: 8px;
+}
+.icon {
+  color: white;
+  height: 20px;
+  width: 20px;
+}
+.listItemContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100vh;
+  list-style-type: none;
+  background-color: #3b82f6;
+}
+
+.durationContainer {
+  display: flex;
+  align-items: center;
+}
+.containerElements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+}
