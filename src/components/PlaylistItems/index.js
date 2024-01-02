@@ -14,17 +14,22 @@ const PlaylistItems = props => {
     <div>
       <li className="listItemContainer">
         <div className="containerElements">
-          <img src={imageUrl} alt={name} className="playlistPic" />
+          <img src={imageUrl} alt="track" className="playlistPic" />
           <div className="playlistName">
-            <h1 className="name">{name}</h1>
+            <p className="name">{name}</p>
             <p className="genre">{genre}</p>
           </div>
         </div>
         <div className="durationContainer">
           <p className="duration">{duration}</p>
           {/* eslint-disable-next-line */}
-          <button type="button" onClick={onDeleteIconClick}>
-            <AiOutlineDelete size={25} />
+          <button
+            type="button"
+            onClick={onDeleteIconClick}
+            className="icon"
+            data-testid="delete"
+          >
+            <AiOutlineDelete size={20} />
           </button>
         </div>
       </li>

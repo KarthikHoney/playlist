@@ -101,7 +101,7 @@ class App extends Component {
 
   renderFailure = () => (
     <div>
-      <h1>No songs found</h1>
+      <p>No Songs Found</p>
     </div>
   )
 
@@ -124,11 +124,11 @@ class App extends Component {
           type="search"
           onChange={this.onChangingInput}
           value={searchInput}
-          placeholder="search playlist"
+          placeholder="Search"
         />
         <div className="backgroundContainer">
           <div className="name_Profession">
-            <h1 className="headName">R.KARTHIK</h1>
+            <h1 className="headName">Ed Sheeran</h1>
             <p className="paraName">Singer</p>
           </div>
         </div>
